@@ -1,0 +1,17 @@
+http://localhost:8081/appointments
+{
+    "dateTime": "2025-07-20T14:30:00",
+    "doctor": {
+        "id": 2
+    },
+    "patient": {
+        "id": 5
+    }
+}
+
+http://localhost:8081/auth/login
+
+{
+    "username": "przemek",
+    "password": "haslo123"
+}

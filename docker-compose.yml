@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8
+    container_name: medical-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: haslo
+      MYSQL_DATABASE: medical_reservations_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medical-app
+    depends_on:
+      - db
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/medical_reservations_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: haslo
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      JWT_SECRET: yourSuperSecretKeyThatShouldBeLongAndSafe
+      JWT_KEY: TW9qZWpTZWNyZXRrZVlKand0QmtleUpXVCBTdWplclNlY3JldEtleU5pZXZpZWxnZWJsd2tqeHd0d2llemthV2F6Y3p5c2x5d21sYWQ=
+      JWT_EXPIRATION_MS: 86400000
+
+volumes:
+  db-data:
