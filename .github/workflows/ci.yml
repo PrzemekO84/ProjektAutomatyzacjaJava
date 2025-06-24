@@ -23,3 +23,7 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn -B clean install
+
+      - name: Echo test
+        run: echo "CI works"
+
