@@ -20,7 +20,6 @@ class UserServiceTest {
     void setUp() {
         userRepository = Mockito.mock(UserRepository.class);
         userService = new UserService();
-        // Wstrzyknięcie mocka do pola private (bo @Autowired)
         setPrivateField(userService, "userRepository", userRepository);
     }
 
@@ -63,7 +62,6 @@ class UserServiceTest {
         verify(userRepository, times(1)).findById(99L);
     }
 
-    // Pomocnicza metoda do ustawienia prywatnego pola
     private void setPrivateField(Object target, String fieldName, Object value) {
         try {
             var field = target.getClass().getDeclaredField(fieldName);
