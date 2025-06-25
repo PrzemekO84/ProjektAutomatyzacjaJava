@@ -226,19 +226,19 @@ docker compose up --build
 
 ## Swagger UI
 
-Po uruchomieniu aplikacji wejdź w przeglądarce na:
+Po uruchomieniu aplikacji można wejść na:
 
 ```
 http://localhost:8080/swagger-ui/index.html
 ```
 
-Znajdziesz tam dokumentację API i możliwość jego testowania.
+Znajduję się tam dokumentacja API i możliwości jego testowania.
 
 ---
 
 ## Automatyzacja CI/CD
 
-GitHub Actions skonfigurowane w:
+GitHub Actions zostało skonfigurowane w:
 
 ```
 .github/workflows/ci.yml
